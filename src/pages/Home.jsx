@@ -40,6 +40,19 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="band">
+        <div className="wrap">
+          <h2 className="section-title">Mobile phones</h2>
+          <div className="grid grid-3">
+            {products
+              .filter((product) => product.categories.includes("phones"))
+              .map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))}
+          </div>
+        </div>
+      </section>
+
       <section className="band band-tight">
         <div className="wrap">
           <h2 className="section-title">Shop by category</h2>

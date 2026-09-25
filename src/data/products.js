@@ -15,10 +15,53 @@ export const categories = [
     blurb: "Compact accessories chosen for everyday carry.",
   },
   {
+    slug: "phones",
+    name: "Phones",
+    blurb: "iPhone and Samsung, priced in Namibian dollars.",
+  },
+  {
     slug: "jewelry",
     name: "Jewelry",
     blurb: "Oxidized silver and enamel, finished by hand.",
   },
+];
+
+function phone(id, model, ram, storage, price, image) {
+  return {
+    id,
+    name: `${model} ${ram} / ${storage}`,
+    price,
+    image,
+    categories: ["phones"],
+    trending: false,
+    madeInIndia: false,
+    summary: `${ram} RAM and ${storage} storage.`,
+    description: `${model} with ${ram} of RAM and ${storage} of storage. Priced in Namibian dollars and packed for delivery from Windhoek.`,
+    details: [`${ram} RAM`, `${storage} storage`, "Unlocked handset", "Ships from our Windhoek hub"],
+  };
+}
+
+const phoneProducts = [
+  phone("iphone-15-128", "iPhone 15", "6GB", "128GB", 9999, "/images/iphone-15.png"),
+  phone("iphone-15-256", "iPhone 15", "6GB", "256GB", 10500, "/images/iphone-15.png"),
+  phone("iphone-15-512", "iPhone 15", "6GB", "512GB", 10999, "/images/iphone-15.png"),
+  phone("iphone-14-128", "iPhone 14", "6GB", "128GB", 7500, "/images/iphone-14.png"),
+  phone("iphone-13-256", "iPhone 13", "4GB", "256GB", 7200, "/images/iphone-13.png"),
+  phone("iphone-13-128", "iPhone 13", "4GB", "128GB", 6500, "/images/iphone-13.png"),
+  phone("iphone-16-pro-max-256", "iPhone 16 Pro Max", "8GB", "256GB", 19999, "/images/iphone-16-pro-max.png"),
+  phone("iphone-16-pro-max-1tb", "iPhone 16 Pro Max", "8GB", "1TB", 24999, "/images/iphone-16-pro-max.png"),
+  phone("iphone-15-pro-max-256", "iPhone 15 Pro Max", "8GB", "256GB", 15999, "/images/iphone-15-pro-max.png"),
+  phone("iphone-15-pro-max-512", "iPhone 15 Pro Max", "8GB", "512GB", 17200, "/images/iphone-15-pro-max.png"),
+  phone("iphone-17-256", "iPhone 17", "8GB", "256GB", 16999, "/images/iphone-17.png"),
+  phone("iphone-17-512", "iPhone 17", "8GB", "512GB", 18999, "/images/iphone-17.png"),
+  phone("iphone-17-pro-256", "iPhone 17 Pro", "12GB", "256GB", 20999, "/images/iphone-17-pro.png"),
+  phone("iphone-17-pro-max-512", "iPhone 17 Pro Max", "12GB", "512GB", 28999, "/images/iphone-17-pro-max.png"),
+  phone("s24-ultra-256", "Samsung Galaxy S24 Ultra", "12GB", "256GB", 15500, "/images/s24-ultra.png"),
+  phone("s24-ultra-512", "Samsung Galaxy S24 Ultra", "12GB", "512GB", 15999, "/images/s24-ultra.png"),
+  phone("s25-ultra-256", "Samsung Galaxy S25 Ultra", "12GB", "256GB", 16999, "/images/s25-ultra.png"),
+  phone("s25-ultra-512", "Samsung Galaxy S25 Ultra", "12GB", "512GB", 17800, "/images/s25-ultra.png"),
+  phone("s23-ultra-256", "Samsung Galaxy S23 Ultra", "12GB", "256GB", 13500, "/images/s23-ultra.png"),
+  phone("s23-ultra-512", "Samsung Galaxy S23 Ultra", "12GB", "512GB", 13999, "/images/s23-ultra.png"),
 ];
 
 export const products = [
@@ -191,7 +234,9 @@ export const products = [
       "A single piece of walnut, cut into a low wedge that holds a phone at a comfortable angle. No screws, no finish smell — just oiled wood and a groove that keeps the device steady.",
     details: ["Walnut", "Oiled finish", "Fits most phones", "Passive stand"],
   },
+  ...phoneProducts,
 ];
+
 
 export function formatPrice(amount) {
   return `N$ ${amount.toLocaleString("en-NA")}`;

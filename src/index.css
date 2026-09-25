@@ -256,7 +256,7 @@ main { flex: 1; }
   padding: 8px;
   z-index: 1;
 }
-.category-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.category-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; }
 .category-tile {
   background: var(--paper);
   border: 1px solid var(--line);
